@@ -121,7 +121,7 @@ jobs:
         openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
         openwrt_board: s905d
         kernel_repo: ophub/kernel
-        openwrt_kernel: 5.15.1
+        openwrt_kernel: 5.15.148
         kernel_usage: flippy
         auto_kernel: true
         image_name: N1-OpenWrt-${{ env.latest_release }}-${{ env.build_date }}
