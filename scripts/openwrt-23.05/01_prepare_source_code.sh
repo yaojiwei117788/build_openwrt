@@ -37,5 +37,10 @@ wait
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' openwrt/package/base-files/files/etc/shadow
 # Modify default IP (FROM 192.168.1.1 CHANGE TO 192.168.1.99 )
 sed -i 's/192.168.1.1/192.168.1.99/g' openwrt/package/base-files/files/bin/config_generate
-
+echo '修改机器名称' 替换
+sed -i 's/OpenWrt/Phicomm-N1/g' package/base-files/files/bin/config_generate
+echo '修改时区'
+sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
+# firewall custom 写入
+echo "iptables -t nat -I POSTROUTING -o pppoe-WAN -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
 exit 0
